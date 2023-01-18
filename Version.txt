@@ -1,0 +1,2 @@
+Angular Version: 15
+NodeJs Version : 18.12.1 x64

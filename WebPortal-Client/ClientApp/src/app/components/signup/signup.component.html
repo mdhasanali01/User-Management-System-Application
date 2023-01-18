@@ -1,0 +1,94 @@
+<mat-card class="mat-elevation-z3 bg-light" >
+    <mat-card-header>
+
+        <img mat-card-avatar src="../../../../assets/users-svgrepo-com.svg" />
+
+        <mat-card-title class="text-primary">Registration</mat-card-title>
+
+    </mat-card-header>
+    <div class="row">
+        <div class="col-12">
+            <h3 class=" col-12 text-center  bg-blue" >Please Fill up Form</h3>
+        </div>
+    </div>
+    <mat-card-content>
+        <form [formGroup]="signupForm" class="form-container" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label >User Name</mat-label>
+                <input matInput formControlName="username" (ngModelChange)="usernamechange($event)">
+                <mat-error *ngIf="f['username'].hasError('required')">Username is <strong>required</strong></mat-error>
+                <mat-error *ngIf="f['username'].hasError('notUnique')">Username <strong>exists</strong>. Choose another one.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label >Full Name</mat-label>
+                <input matInput formControlName="fullname" (ngModelChange)="usernamechange($event)">
+                <mat-error *ngIf="f['fullname'].hasError('required')">Full name is <strong>required</strong></mat-error>
+                
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Choose an option</mat-label>
+                <mat-select formControlName="gender" (ngModelChange)="usernamechange($event)" >
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value="Female">Female</mat-option>
+                </mat-select>
+                <mat-error *ngIf="f['gender'].hasError('required')">Gender name <strong> required</strong></mat-error>
+              </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Date of birth</mat-label>
+                    <input formControlName="dateofbirth" matInput [matDatepicker]="dp1">
+                    <mat-hint>YYYY-MM-DD</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>
+                    <mat-datepicker #dp1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address" (ngModelChange)="usernamechange($event)">
+                <mat-error *ngIf="f['address'].hasError('required')">Address required</mat-error>
+                
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Mobile Number</mat-label>
+                <span matPrefix>+880 &nbsp;</span>
+                <input  matInput formControlName="mobilenumber" >
+                <mat-hint>Hints: 01689-xxxxxx</mat-hint>
+                <mat-error *ngIf="f['mobilenumber'].hasError('required')">Mobile no is <strong>required</strong></mat-error>
+                <mat-error *ngIf="f['mobilenumber'].hasError('pattern')">Mobile no is <strong>invalid</strong></mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w " >
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" (ngModelChange)="emailchange($event)">
+                <mat-error *ngIf="f['email'].hasError('required')">Email is <strong>required</strong></mat-error>
+                <mat-error *ngIf="f['email'].hasError('email')">Email is <strong>invalid</strong></mat-error>
+                <mat-error *ngIf="f['email'].hasError('notUnique')">Email <strong>already used</strong>. Choose another one.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="pasword">
+                   <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                   {{showPassword?'visibility':'visibility_off'}}
+                 </mat-icon>
+                
+                <mat-hint>Strong password <mat-icon #tooltip="matTooltip"
+                    matTooltip="Passaword must contain 8 characters and include one uppacase letter, one lowercase letter, one digit and one special charcter"
+                    [matTooltipPosition]="'below'">help</mat-icon></mat-hint>
+        
+                <mat-error *ngIf="f['pasword'].hasError('required')">Passaword is <strong>required</strong></mat-error>
+                <mat-error *ngIf="f['pasword'].hasError('pattern')">Passaword is <strong>week</strong>. Choose another one.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="f-w">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirmpassword">
+                   <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                   {{showPassword?'visibility':'visibility_off'}}
+                 </mat-icon>
+                
+        
+                <mat-error *ngIf="f['confirmpassword'].hasError('required')">Comfirm Passaword is <strong>required</strong></mat-error>
+                <mat-error *ngIf="f['confirmpassword'].hasError('matching')"> Password don't <strong>match</strong></mat-error>
+            </mat-form-field>
+            <div class="f-w">
+                <button mat-raised-button color="primary" class="btn btn-primary btn-sm" type="submit" [disabled]="signupForm.invalid">Register</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

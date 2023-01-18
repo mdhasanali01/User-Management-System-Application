@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        
+      <mat-card-title-group>
+       
+        <mat-card-title>Your DashBoard</mat-card-title>
+        
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="f-w" style="margin-bottom: 10px;">
+        <mat-card-subtitle >See Your Profile?</mat-card-subtitle>
+        <mat-card-subtitle>Please Click button Below:</mat-card-subtitle>
+        <div class="f-w" >
+            <button class="btn btn-primary btn" [routerLink]="['/profile',username]" style="margin-bottom: 10px;">View Your Profile</button>  
+        </div>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-content class="f-w">
+        <mat-card-subtitle>See Your Total User List</mat-card-subtitle>
+        <mat-card-subtitle>Please Click button Below:</mat-card-subtitle>
+        <div class="f-w" >
+            <button class="btn btn-primary btn" [routerLink]="['/user']" style="margin-bottom: 10px;">List of Users</button>
+        </div>
+      
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    
+  </mat-card>

@@ -1,0 +1,49 @@
+<mat-card class="example-card" *ngIf="user">
+    <mat-card-header>
+        
+      <mat-card-title-group>
+        <mat-card-actions>
+          <a mat-button class="btn btn-sm btn-primary" [routerLink]="['/profile/edit', user.userid]"><mat-icon>edit</mat-icon>Edit</a>
+        </mat-card-actions>
+        <mat-card-title>{{user.fullname}}</mat-card-title>
+        <mat-card-subtitle>{{user.username}}</mat-card-subtitle>
+       
+        
+      </mat-card-title-group>
+    </mat-card-header>
+ 
+    <mat-card-content>
+      <div class="row">
+        
+          <div class="row ">
+            <div class="label">Gender</div>
+            <div class="value">{{user.gender}}</div>
+          </div>
+          <mat-divider class="mb-2"></mat-divider>
+          <div class="row ">
+            <div class="label">Date of birth</div>
+            <div class="value">{{user.dateofbirth|date:'yyyy-MM-dd'}}</div>
+          </div>
+          <mat-divider class="mb-2"></mat-divider>
+          <div class="row ">
+            <div class="label">Address</div>
+            <div class="value">{{user.address}}</div>
+          </div>
+          <mat-divider class="mb-2"></mat-divider>
+          <div class="row ">
+            <div class="label">Mobile Number</div>
+            <div class="value">{{user.mobilenumber}}</div>
+          </div>
+          <mat-divider class="mb-2"></mat-divider>
+        <div class="row">
+            <div class="label">E-mail</div>
+            <div class="value">{{user.email}}</div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <a mat-button class="btn btn-sm btn-secondary" [routerLink]="['/dashbord']">Back</a>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+  

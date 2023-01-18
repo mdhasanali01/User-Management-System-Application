@@ -1,0 +1,77 @@
+<div class="navbar navbar-light bg-info navbar-expand-md fixed-top border-bottom">
+  <div class="container">
+      <span class="navbar-brand" style="margin-bottom: 10px; margin-top: 10px;">Job Assigement <sup>Register Form</sup></span>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item" style="flex: 1 1 auto;">
+                <a mat-list-item [routerLink]="['/home']"  style="margin-left: 15px; text-decoration: none;"> Home</a>
+              </li>
+              <li class="nav-item" style="flex: 1 1 auto;">
+                <a mat-list-item *ngIf="isLoggedIn" [routerLink]="['/user']"  style="margin-left: 15px; margin-top: 20px; text-decoration: none;"> User List</a>
+              </li> 
+              <li class="nav-item">
+                <a mat-list-item *ngIf="!isLoggedIn" [routerLink]="['/signup']"  style="margin-left: 25px; margin-top: 20px; text-decoration: none;"> Sign up</a>
+              </li>
+              <li class="nav-item">
+                <a mat-list-item *ngIf="!isLoggedIn" [routerLink]="['/login']" style="margin-left: 25px; text-decoration: none;"> Sign in</a>
+              </li>
+              <li class="nav-item">
+                <a mat-list-item *ngIf="isLoggedIn" (click)="logout()" type="button" style="margin-left: 25px;  text-decoration: none;">Log Out</a>
+              </li>
+              
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="container" style="padding-top: 70px;">
+  <router-outlet></router-outlet>
+</div>
+<!-- <mat-sidenav #drawer class="sidenav">
+    <mat-nav-list role="list">
+      
+      <a *ngIf="isLoggedIn" [routerLink]="['/profile', username]" mat-list-item >
+        <mat-icon matListItemIcon>face</mat-icon>
+        <div matListItemTitle>Profile</div>
+        
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!isLoggedIn" [routerLink]="['/register']" mat-list-item >
+        <mat-icon matListItemIcon>app_registration</mat-icon>
+        <div matListItemTitle>Register</div>
+        
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!isLoggedIn" [routerLink]="['/login']" mat-list-item >
+        <mat-icon matListItemIcon>login</mat-icon>
+        <div matListItemTitle>Login</div>
+        
+      </a>
+      <mat-divider></mat-divider>
+      <a *ngIf="isLoggedIn" (click)="logout()" type="button"   mat-list-item >
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <div matListItemTitle>Logout</div>
+        
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>RestClient</span>
+      <span class="spacer-left"></span>
+      <a [routerLink]="['/home']" mat-button>Home</a>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content> -->
+
